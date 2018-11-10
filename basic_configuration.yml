@@ -1,0 +1,4 @@
+- hosts: localhost
+  tasks:
+    - name: Install OpenSSH
+      package: name=sshd state=present
