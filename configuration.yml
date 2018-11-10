@@ -1,4 +1,1 @@
 - hosts: team-overview
-  tasks:
-    - name: Install OpenSSH
-      package: name=sshd state=present
