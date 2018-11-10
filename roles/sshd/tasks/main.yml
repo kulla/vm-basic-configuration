@@ -4,6 +4,6 @@
     - name: Configure sshd
       copy:
         src: sshd_config
-        dest: /etc/sshd_config
+        dest: /etc/ssh/sshd_config
         mode: 0400
       notify: "restart ssh"
