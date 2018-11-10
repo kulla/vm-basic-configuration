@@ -1,1 +1,1 @@
-team-overview ansible_host=35.198.148.204
+team-overview ansible_host=35.198.148.204 ansible_become=true
