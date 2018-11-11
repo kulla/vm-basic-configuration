@@ -43,3 +43,9 @@
       with_items:
         - "{{ pyenv_install_dir }}"
         - "{{ virtualenv_install_dir }}"
+
+    - name: Install update script for pyenv
+      template:
+        src: update_pyenv
+        dest: /etc/cron.weekly/update_pyenv
+        mode: 0700

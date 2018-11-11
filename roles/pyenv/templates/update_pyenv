@@ -1,0 +1,4 @@
+sudo -i -u '{{ user }}' /bin/sh - << EOF
+cd '{{ pyenv_install_dir }}' && git pull
+cd '{{ virtualenv_install_dir }}' && git pull
+EOF
