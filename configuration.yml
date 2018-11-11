@@ -1,3 +1,4 @@
 - hosts: team-overview
   roles:
     - basic
+    - team-overview

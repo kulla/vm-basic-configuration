@@ -1,0 +1,7 @@
+---
+- name: Add user for creating the team-overview document
+  user:
+    name: "{{ team_overview_user }}"
+
+- name: Install nginx
+  package: name=nginx state=present
