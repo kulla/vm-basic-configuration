@@ -1,2 +1,3 @@
 ---
 team_overview_user: team-overview
+working_directory: /home/{{ team_overview_user }}/{{ team_overview_user }}
