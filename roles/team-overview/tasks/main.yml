@@ -4,7 +4,7 @@
     name: "{{ team_overview_user }}"
 
 - name: Install pyenv
-  include_role: name=pyenv
+  import_role: name=pyenv
   vars:
     user: "{{ team_overview_user }}"
 
