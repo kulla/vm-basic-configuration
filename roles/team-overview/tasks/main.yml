@@ -11,18 +11,24 @@
       vars:
         user: "{{ team_overview_user }}"
 
-    - name: Create working directory
+    - name: Create base directory
       file:
-        path: "{{ working_directory }}"
+        path: "{{ base_directory }}"
         state: directory
         owner: "{{ team_overview_user }}"
         group: "{{ team_overview_user }}"
         mode: 0700
 
-    - name: Clone repository for creating team-overview
-      git:
-        repo: https://github.com/serlo-org/serlo-highrise-report.git
-        dest: "{{ repository }}"
+    - name: Copy scripts for creating team overview
+      template:
+        src: "{{ item }}"
+        dest: "{{ base_directory }}/{{ item }}"
+        owner: "{{ team_overview_user }}"
+        group: "{{ team_overview_user }}"
+        mode: 0700
+      with_items:
+        - update_working_directory
+        - update_team_overview
 
     - name: Install nginx
       package: name=nginx state=present

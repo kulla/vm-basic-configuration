@@ -1,0 +1,21 @@
+#!/bin/bash -i
+
+# Clone repository when necessary
+test '!' -d '{{ working_directory }}' && \
+	git clone -q '{{ repository }}' '{{ working_directory }}'
+
+# Update repository
+(cd '{{ working_directory }}' && git pull -q)
+
+# Install needed python version
+NEEDED_PYTHON_VERSION=$(cat '{{working_directory}}/.python-version')
+. '/home/{{ team_overview_user }}/.bashrc'
+pyenv install --skip-existing "$NEEDED_PYTHON_VERSION"
+test '!' -d '{{ team_overview_home }}/.pyenv/versions/{{ virtualenv_name }}' \
+	&& pyenv virtualenv "$NEEDED_PYTHON_VERSION" '{{ virtualenv_name }}'
+
+# Update python packages
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+pyenv activate '{{ virtualenv_name }}'
+pip install -q --upgrade -r '{{working_directory}}/requirements.txt'
+pip install -q --upgrade pip

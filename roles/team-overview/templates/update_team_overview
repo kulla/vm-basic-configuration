@@ -1,0 +1,8 @@
+#!/bin/bash -i
+
+# Update everything
+source '{{ base_directory}}/update_working_directory'
+
+# Run script for creating team overview
+(cd '{{ working_directory }}' && \
+	HIGHRISE_API_TOKEN=$(cat '{{ base_directory }}/.token') make -s)
