@@ -1,0 +1,3 @@
+---
+pyenv_install_dir: "/home/{{ user }}/.pyenv"
+virtualenv_install_dir: "{{ pyenv_install_dir }}/plugins/pyenv-virtualenv"

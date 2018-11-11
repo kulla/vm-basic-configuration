@@ -3,5 +3,10 @@
   user:
     name: "{{ team_overview_user }}"
 
+- name: Install pyenv
+  include_role: name=pyenv
+  vars:
+    user: "{{ team_overview_user }}"
+
 - name: Install nginx
   package: name=nginx state=present
