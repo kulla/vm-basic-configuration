@@ -19,5 +19,10 @@
         group: "{{ team_overview_user }}"
         mode: 0700
 
+    - name: Clone repository for creating team-overview
+      git:
+        repo: https://github.com/serlo-org/serlo-highrise-report.git
+        dest: "{{ repository }}"
+
     - name: Install nginx
       package: name=nginx state=present
