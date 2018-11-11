@@ -2,6 +2,7 @@
 - name: Add user for creating the team-overview document
   user:
     name: "{{ team_overview_user }}"
+    shell: /bin/bash
 
 - name: Install pyenv
   import_role: name=pyenv
