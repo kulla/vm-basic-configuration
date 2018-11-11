@@ -30,5 +30,11 @@
         - update_working_directory
         - update_team_overview
 
+    - name: Update team-overview working directory
+      command: sudo -u '{{ team_overview_user }}' ./update_working_directory
+      args:
+        chdir: '{{ base_directory }}'
+        creates: '{{ team_overview_home }}/.pyenv/versions/{{ virtualenv_name }}'
+
     - name: Install nginx
       package: name=nginx state=present
