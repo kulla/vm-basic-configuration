@@ -36,5 +36,11 @@
         chdir: '{{ base_directory }}'
         creates: '{{ team_overview_home }}/.pyenv/versions/{{ virtualenv_name }}'
 
+    - name: Install cron job for updating team overview
+      template:
+        src: start_update_team_overview
+        dest: /etc/cron.hourly/start_update_team_overview
+        mode: 0500
+
     - name: Install nginx
       package: name=nginx state=present

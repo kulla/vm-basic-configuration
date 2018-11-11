@@ -1,0 +1,4 @@
+#!/bin/sh
+
+(cd '{{ base_directory }}' && \
+	sudo -u '{{ team_overview_user }}' ./update_team_overview)
