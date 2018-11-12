@@ -1,0 +1,5 @@
+---
+- tags: [webserver]
+  block:
+    - name: Install nginx
+      package: name=nginx state=present
