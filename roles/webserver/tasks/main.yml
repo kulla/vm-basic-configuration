@@ -3,3 +3,12 @@
   block:
     - name: Install nginx
       package: name=nginx state=present
+
+    - name: Create web directory
+      file:
+        path: "{{ web_directory }}"
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: 0770
+        recurse: true

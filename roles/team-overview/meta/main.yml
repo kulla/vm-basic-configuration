@@ -1,3 +1,4 @@
 ---
 dependencies:
-  - webserver
+  - role: webserver
+    web_directory: "{{ target_directory }}"
