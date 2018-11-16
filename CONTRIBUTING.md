@@ -4,7 +4,7 @@ We use the [vault feature of ansible](https://docs.ansible.com/ansible/latest/us
 
 1. Ask the maintainer (currently [Kulla](https://github.com/kulla)) for the password.
 2. Store the password in `.vault_pass.txt`.
-3. Run `export ANSIBLE_VAULT_PASSWORD_FILE="<path to repository>/.vault_pass.txt` before changing this repository.
+3. Run `export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/.vault_pass.txt"` inside the main directory of the repository.
 
 Now you can use the following commands for changing this repository:
 
