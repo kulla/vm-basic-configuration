@@ -45,4 +45,5 @@
     - name: Configure team overview server
       template:
         src: team_overview.conf
-        dest: /etc/nginx/conf.d
+        dest: /etc/nginx/sites-enabled
+      notify: "restart webserver"
