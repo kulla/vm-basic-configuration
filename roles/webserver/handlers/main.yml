@@ -1,0 +1,4 @@
+---
+- name: Restart nginx
+  command: nginx -s reload
+  listen: "restart webserver"
