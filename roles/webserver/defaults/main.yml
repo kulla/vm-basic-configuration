@@ -1,3 +1,4 @@
 ---
+# Default user and group of nginx on a Debian system
 webserver_user: www-data
 webserver_group: www-data
