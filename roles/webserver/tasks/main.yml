@@ -17,3 +17,6 @@
         group: "{{ webserver_group }}"
         mode: 0770
         recurse: true
+
+    - name: Start webserver
+      service: name=nginx state=started
