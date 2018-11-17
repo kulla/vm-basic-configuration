@@ -1,6 +1,4 @@
 ---
 - name: Restart ssh
-  service:
-    name: ssh
-    state: reloaded
+  service: name=ssh state=reloaded
   listen: "restart ssh"
