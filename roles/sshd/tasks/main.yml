@@ -7,3 +7,6 @@
         dest: /etc/ssh/sshd_config
         mode: 0400
       notify: "restart ssh"
+
+    - name: Start sshd
+      service: name=sshd state=started
