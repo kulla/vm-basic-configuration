@@ -1,4 +1,5 @@
 ---
 dependencies:
   - role: webserver
-    web_directory: "{{ target_directory }}"
+    webserver:
+      directory: "{{ team_overview.target_directory }}"

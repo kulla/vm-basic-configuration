@@ -9,7 +9,7 @@
 
     - name: Create web directory
       file:
-        path: "{{ web_directory }}"
+        path: "{{ webserver.directory }}"
         state: directory
         owner: www-data
         group: www-data

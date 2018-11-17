@@ -1,8 +1,9 @@
 ---
+team_overview:
+  target_directory: /www/data
 team_overview_user: team-overview
 team_overview_home: "/home/{{ team_overview_user }}"
 virtualenv_name: '{{ team_overview_user }}'
 base_directory: /home/{{ team_overview_user }}/{{ team_overview_user }}
 working_directory: "{{ base_directory }}/repository"
 repository: https://github.com/serlo-org/serlo-highrise-report.git
-target_directory: /www/data
