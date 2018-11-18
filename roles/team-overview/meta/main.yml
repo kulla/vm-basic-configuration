@@ -1,4 +1,4 @@
 ---
 dependencies:
   - role: webserver
-    webserver_directory: "{{ team_overview.target_directory }}"
+    webserver_name: overview.serlo.org

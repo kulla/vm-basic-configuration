@@ -1,0 +1,2 @@
+---
+webserver_directory: "{{ webserver_base_directory }}/{{ webserver_name }}"

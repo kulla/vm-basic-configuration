@@ -2,3 +2,7 @@
 # Default user and group of nginx on a Debian system
 webserver_user: www-data
 webserver_group: www-data
+
+# FHS defines /srv as the directory where served HTML files shall be stored.
+# (see http://www.pathname.com/fhs/pub/fhs-2.3.html#SRVDATAFORSERVICESPROVIDEDBYSYSTEM )
+webserver_base_directory: /srv/www
