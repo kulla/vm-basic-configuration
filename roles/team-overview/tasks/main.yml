@@ -41,9 +41,3 @@
         src: start_update_team_overview
         dest: /etc/cron.hourly/start_update_team_overview
         mode: 0500
-
-    - name: Configure team overview server
-      template:
-        src: team_overview.conf
-        dest: /etc/nginx/sites-enabled
-      notify: "restart webserver"

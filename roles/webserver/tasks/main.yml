@@ -20,3 +20,9 @@
 
     - name: Start webserver
       service: name=nginx state=started
+
+    - name: Configure server
+      template:
+        src: nginx_server.conf
+        dest: /etc/nginx/sites-enabled/{{ webserver_name }}.conf
+      notify: "restart webserver"
