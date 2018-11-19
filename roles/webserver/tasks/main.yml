@@ -6,7 +6,9 @@
       notify: "restart webserver"
 
     - name: Remove configuration of default webserver
-      file: path={{ webserver_sites_enabled }}/default state=absent
+      file:
+        path: "{{ webserver_sites_enabled }}/default"
+        state: absent
       notify: "restart webserver"
 
     - name: Create directory for webserver configurations
