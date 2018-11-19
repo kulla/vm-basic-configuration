@@ -1,7 +1,7 @@
 ---
 webserver_base_conf: /etc/nginx
-webserver_sites_enabled: "{{ webserver_base_conf }}/sites-enabled"
+webserver_conf: "{{ webserver_conf_directory}}/{{ webserver_name }}.conf"
 webserver_conf_directory: "{{ webserver_base_conf }}/sites-available/\
                            {{ webserver_name }}"
-webserver_conf: "{{ webserver_conf_directory}}/{{ webserver_name }}.conf"
 webserver_directory: "{{ webserver_base_directory }}/{{ webserver_name }}"
+webserver_sites_enabled: "{{ webserver_base_conf }}/sites-enabled"
