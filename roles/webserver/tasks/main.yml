@@ -6,7 +6,25 @@
       notify: "restart webserver"
 
     - name: Remove configuration of default webserver
-      file: path=/etc/nginx/sites-enabled/default state=absent
+      file: path={{ webserver_sites_enabled }}/default state=absent
+      notify: "restart webserver"
+
+    - name: Create directory for webserver configurations
+      file:
+        path: "{{ webserver_conf_directory }}"
+        state: directory
+        recurse: true
+
+    - name: Save configuration of webserver
+      template:
+        src: nginx_server.conf
+        dest: "{{ webserver_conf }}"
+
+    - name: Configure webserver
+      file:
+        src: "{{ webserver_conf }}"
+        dest: "{{ webserver_sites_enabled }}/{{ webserver_name }}.conf"
+        state: link
       notify: "restart webserver"
 
     - name: Create web directory
@@ -20,9 +38,3 @@
 
     - name: Start webserver
       service: name=nginx state=started
-
-    - name: Configure server
-      template:
-        src: nginx_server.conf
-        dest: /etc/nginx/sites-enabled/{{ webserver_name }}.conf
-      notify: "restart webserver"
