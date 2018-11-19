@@ -19,6 +19,33 @@
       template:
         src: nginx_server.conf
         dest: "{{ webserver_conf }}"
+      notify: "restart webserver"
+
+    - name: Install pyOpenSSL
+      package: name=python-openssl state=present
+
+    - name: Generate OpenSSL private key
+      openssl_privatekey:
+        path: "{{ webserver_ssl_privatekey }}"
+        state: present
+      notify: "restart webserver"
+
+    - name: Generate OpenSSL CSR
+      openssl_csr:
+        path: "{{ webserver_ssl_csr }}"
+        privatekey_path: "{{ webserver_ssl_privatekey }}"
+        common_name: "{{ webserver_name }}"
+        state: present
+      notify: "restart webserver"
+
+    - name: Generate Self Signed OpenSSL certificate
+      openssl_certificate:
+        path: "{{ webserver_ssl_certificate }}"
+        privatekey_path: "{{ webserver_ssl_privatekey }}"
+        csr_path: "{{ webserver_ssl_csr }}"
+        provider: selfsigned
+        state: present
+      notify: "restart webserver"
 
     - name: Configure webserver
       file:

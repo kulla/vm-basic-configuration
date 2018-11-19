@@ -5,3 +5,8 @@ webserver_conf_directory: "{{ webserver_base_conf }}/sites-available/\
                            {{ webserver_name }}"
 webserver_directory: "{{ webserver_base_directory }}/{{ webserver_name }}"
 webserver_sites_enabled: "{{ webserver_base_conf }}/sites-enabled"
+webserver_ssl_privatekey: "{{ webserver_conf_directory}}/\
+                           {{ webserver_name }}.privatekey"
+webserver_ssl_csr: "{{ webserver_conf_directory}}/{{ webserver_name}}.csr"
+webserver_ssl_certificate: "{{ webserver_conf_directory}}/\
+                            {{ webserver_name}}.certificate"
