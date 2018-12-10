@@ -5,6 +5,8 @@
       user:
         name: "{{ team_overview_user }}"
         shell: /bin/bash
+        groups:
+          - www-data
 
     - name: Install pyenv
       import_role: name=pyenv

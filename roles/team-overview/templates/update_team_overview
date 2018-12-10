@@ -3,6 +3,8 @@
 # Update everything
 source '{{ base_directory}}/update_working_directory'
 
-# Run script for creating team overview
+# Run script for creating team overview and update webserver
 (cd '{{ working_directory }}' && \
-	HIGHRISE_API_TOKEN=$(cat '{{ base_directory }}/.token') make -s)
+	HIGHRISE_API_TOKEN=$(cat '{{ base_directory }}/.token') make -s && \
+	rsync --quiet --perms --links --safe-links --recursive --delete-after \
+		out/* '{{ team_overview_target_webserver }}/')

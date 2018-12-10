@@ -1,6 +1,5 @@
 ---
-team_overview:
-  target_directory: /www/data
+team_overview_target_webserver: /srv/www/overview.serlo.org
 team_overview_user: team-overview
 team_overview_home: "/home/{{ team_overview_user }}"
 virtualenv_name: '{{ team_overview_user }}'
