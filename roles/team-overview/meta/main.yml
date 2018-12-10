@@ -1,4 +1,0 @@
----
-dependencies:
-  - role: webserver
-    webserver_name: overview.serlo.org

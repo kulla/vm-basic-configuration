@@ -41,3 +41,15 @@
         src: start_update_team_overview
         dest: /etc/cron.hourly/start_update_team_overview
         mode: 0500
+
+    - name: Register variable team_overview_passwd_file
+      set_fact:
+        team_overview_passwd_file: "{{ role_path }}/files/htpasswd_file"
+      tags: [webserver]
+
+    - name: Install webserver for team overview document
+      include_role: name=webserver
+      vars:
+        webserver_name: overview.serlo.org
+        webserver_passwd_file: "{{ team_overview_passwd_file }}"
+      tags: [webserver]

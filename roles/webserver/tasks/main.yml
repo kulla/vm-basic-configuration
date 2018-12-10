@@ -49,6 +49,12 @@
         state: present
       notify: "restart webserver"
 
+    - name: Copy auth basic user file for webserver
+      copy:
+        src: "{{ webserver_passwd_file }}"
+        dest: "{{ webserver_auth_basic_user_file }}"
+      when: webserver_passwd_file is defined
+
     - name: Configure webserver
       file:
         src: "{{ webserver_conf }}"

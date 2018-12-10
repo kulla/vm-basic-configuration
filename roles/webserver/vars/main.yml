@@ -1,4 +1,5 @@
 ---
+webserver_auth_basic_user_file: "{{ webserver_conf_directory }}/htpasswd_file"
 webserver_base_conf: /etc/nginx
 webserver_conf: "{{ webserver_conf_directory}}/{{ webserver_name }}.conf"
 webserver_conf_directory: "{{ webserver_base_conf }}/sites-available/\
